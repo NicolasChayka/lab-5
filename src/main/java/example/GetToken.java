@@ -1,5 +1,12 @@
 package example;
 
+import okhttp3.HttpUrl;
+import okhttp3.Request;
+import okhttp3.Response;
+
+
+import java.io.IOException;
+
 /**
  * Class for getting your Grade API token.
  */
@@ -14,8 +21,13 @@ public class GetToken {
 
         String gradeAPISignUpURL = "https://grade-apis.panchen.ca/signUp";
         // TODO Task 1: use the run method to get your Grade API token (or obtain your token through a web browser).
+
         String response = "";
-        // response = example.run( ...)
+        try {
+            response = example.run("https://grade-apis.panchen.ca/signUp?username=shitdog");
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
         System.out.println(response);
     }
 }
